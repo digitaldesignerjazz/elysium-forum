@@ -1,0 +1,93 @@
+/** Seed listings — legal goods only, German marketplace demo */
+export const SEED_LISTINGS = [
+  {
+    id: "seed-1",
+    title: "neon terminal ui kit",
+    description: "figma + svg komponenten für dunkle dashboards. inkl. buttons, cards, charts.",
+    category: "design",
+    price: "29 €",
+    status: "aktiv",
+    createdAt: "2026-09-01T10:00:00.000Z",
+  },
+  {
+    id: "seed-2",
+    title: "static site cli",
+    description: "leichtes node-cli zum bauen und previewen von static sites. mit watch-mode.",
+    category: "software",
+    price: "free / open source",
+    status: "aktiv",
+    createdAt: "2026-09-02T11:30:00.000Z",
+  },
+  {
+    id: "seed-3",
+    title: "mechanical keyboard switches (unused)",
+    description: "packung 70× gateron yellow pro (linear), unbenutzt, originalverpackt.",
+    category: "hardware",
+    price: "35 €",
+    status: "aktiv",
+    createdAt: "2026-09-03T09:15:00.000Z",
+  },
+  {
+    id: "seed-4",
+    title: "logo & brand sprint (remote)",
+    description: "2-tägiger remote design-sprint: moodboard, 3 richtungen, finale dateien (svg/png).",
+    category: "dienstleistung",
+    price: "ab 350 €",
+    status: "aktiv",
+    createdAt: "2026-09-04T14:00:00.000Z",
+  },
+  {
+    id: "seed-5",
+    title: "cyberpunk worldbuilding workbook",
+    description: "pdf-workbook mit prompts für settings, fraktionen und street-level stories.",
+    category: "buch",
+    price: "12 €",
+    status: "aktiv",
+    createdAt: "2026-09-05T16:45:00.000Z",
+  },
+  {
+    id: "seed-6",
+    title: "elysium enamel pin set",
+    description: "3er set hard-enamel pins (netz, node, signal). nickelfrei, inkl. backing cards.",
+    category: "merch",
+    price: "18 €",
+    status: "aktiv",
+    createdAt: "2026-09-06T12:00:00.000Z",
+  },
+  {
+    id: "seed-7",
+    title: "markdown notes sync tool",
+    description: "desktop-app (win/mac/linux) zum syncen von markdown-ordnern via eigene api.",
+    category: "software",
+    price: "9 € one-time",
+    status: "aktiv",
+    createdAt: "2026-09-07T08:20:00.000Z",
+  },
+  {
+    id: "seed-8",
+    title: "icon pack · 120 line icons",
+    description: "monochrome line icons (24px), svg + png. inkl. figma library.",
+    category: "design",
+    price: "15 €",
+    status: "aktiv",
+    createdAt: "2026-09-08T13:10:00.000Z",
+  },
+];
+
+export const SEED_THREADS = [
+  {
+    id: "thread-welcome",
+    title: "willkommen im elysium forum",
+    nickname: "nexus",
+    body: "dies ist das live multi-user forum. threads und replies sind server-backed und für alle besucher sichtbar. bitte bleib freundlich und legal.",
+    createdAt: "2026-09-20T12:00:00.000Z",
+    replies: [
+      {
+        id: "reply-welcome-1",
+        nickname: "lyra",
+        body: "schön hier zu sein — marketplace-tab für legale listings, forum für diskussion.",
+        createdAt: "2026-09-20T12:15:00.000Z",
+      },
+    ],
+  },
+];

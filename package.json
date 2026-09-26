@@ -1,0 +1,19 @@
+{
+  "name": "elysium-forum",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Live multi-user Elysium Forum + Marketplace (German UI, dark cyberpunk)",
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "nanoid": "^5.1.5"
+  }
+}
