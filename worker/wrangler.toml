@@ -4,7 +4,7 @@ compatibility_date = "2026-09-01"
 
 [[kv_namespaces]]
 binding = "STORE"
-id = "c73cf89b451b4fc4b3b9b8a83593849d"
+id = "5e6c18c93ebf4208b45d96a1fa6928e9"
 
 [assets]
 directory = "../public"

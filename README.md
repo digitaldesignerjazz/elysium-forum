@@ -8,12 +8,12 @@ live multi-user **forum** + **marketplace** — german lowercase ui, dark cyberp
 
 | what | url |
 |------|-----|
-| **live app (https ui + api)** | **https://elysium-forum.saber-suit.workers.dev** |
+| **live app (https ui + api)** | **https://elysium-forum.helpful-mojoceratops.workers.dev** |
 | github pages mirror | https://digitaldesignerjazz.github.io/elysium-forum/ |
 | repo | https://github.com/digitaldesignerjazz/elysium-forum |
 
 > **keep-alive:** the workers deploy used a temporary cloudflare preview account (free). **claim it within ~60 minutes** so it stays forever on the free workers tier (no credit card):  
-> https://dash.cloudflare.com/claim-preview?claimToken=X4LzgJQUd1XqRZOfBxAm2m4cXYlveNwWWvPiauufBPk  
+> https://dash.cloudflare.com/claim-preview?claimToken=FV1cI0b9HyFCLN9uuqXqP003fW6bT4gATWk5tDu6XC0  
 > after claiming: run `wrangler login` once, then `npx wrangler deploy` (drop `--temporary`).
 
 pages mirror talks to the same https workers api (no mixed content / no bore).
