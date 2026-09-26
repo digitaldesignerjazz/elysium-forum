@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Elysium Forum + Marketplace — live, multi-user, server-backed" />
+  <title>elysium forum · marketplace</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-mark">◈</span>
+      <div>
+        <h1>elysium forum</h1>
+        <p class="tagline">live · multi-user · forum + marketplace</p>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span id="api-status" class="status-pill pending">api …</span>
+    </div>
+  </header>
+
+  <aside class="rules-banner" role="note">
+    <strong>regeln:</strong> nur legale güter &amp; inhalte.
+    verboten: drogen, waffen, gestohlene ware, csam / sexuelle inhalte mit minderjährigen, betrugsangebote.
+    verstöße werden geflaggt oder entfernt.
+  </aside>
+
+  <nav class="tabs" role="tablist" aria-label="bereiche">
+    <button type="button" class="tab active" role="tab" aria-selected="true" data-tab="forum">forum</button>
+    <button type="button" class="tab" role="tab" aria-selected="false" data-tab="market">marketplace</button>
+  </nav>
+
+  <main>
+    <!-- FORUM -->
+    <section id="panel-forum" class="panel-tab" role="tabpanel">
+      <div id="forum-list-view">
+        <section class="panel create-panel">
+          <h2>neuer thread</h2>
+          <form id="thread-form" autocomplete="off">
+            <div class="form-row">
+              <label>
+                nickname
+                <input type="text" name="nickname" required maxlength="40" placeholder="dein name" />
+              </label>
+              <label>
+                titel
+                <input type="text" name="title" required maxlength="120" placeholder="worum geht's?" />
+              </label>
+            </div>
+            <label>
+              text
+              <textarea name="body" required maxlength="4000" rows="3" placeholder="schreib etwas…"></textarea>
+            </label>
+            <div class="form-actions">
+              <button type="submit" class="btn primary">thread erstellen</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="panel list-panel">
+          <div class="list-header">
+            <h2>threads</h2>
+            <span id="thread-count" class="count"></span>
+          </div>
+          <div id="threads" class="threads" role="list"></div>
+          <p id="threads-empty" class="empty hidden">noch keine threads.</p>
+        </section>
+      </div>
+
+      <div id="forum-thread-view" class="hidden">
+        <button type="button" id="btn-back" class="btn ghost">← zurück</button>
+        <article id="thread-detail" class="panel thread-detail"></article>
+        <section class="panel create-panel">
+          <h2>antwort schreiben</h2>
+          <form id="reply-form" autocomplete="off">
+            <div class="form-row">
+              <label>
+                nickname
+                <input type="text" name="nickname" required maxlength="40" placeholder="dein name" />
+              </label>
+            </div>
+            <label>
+              antwort
+              <textarea name="body" required maxlength="4000" rows="3" placeholder="deine antwort…"></textarea>
+            </label>
+            <div class="form-actions">
+              <button type="submit" class="btn primary">antworten</button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </section>
+
+    <!-- MARKETPLACE -->
+    <section id="panel-market" class="panel-tab hidden" role="tabpanel">
+      <section class="panel create-panel">
+        <h2>neues listing</h2>
+        <form id="listing-form" autocomplete="off">
+          <div class="form-row">
+            <label>
+              titel
+              <input type="text" name="title" required maxlength="120" placeholder="z.b. darkui kit" />
+            </label>
+            <label>
+              kategorie
+              <select name="category" required>
+                <option value="software">software</option>
+                <option value="design">design</option>
+                <option value="hardware">hardware</option>
+                <option value="dienstleistung">dienstleistung</option>
+                <option value="buch">buch</option>
+                <option value="merch">merch</option>
+              </select>
+            </label>
+            <label>
+              preis
+              <input type="text" name="price" required maxlength="40" placeholder="z.b. 19 € / free" />
+            </label>
+          </div>
+          <label>
+            beschreibung
+            <textarea name="description" required maxlength="800" rows="3" placeholder="kurzbeschreibung…"></textarea>
+          </label>
+          <div class="form-actions">
+            <button type="submit" class="btn primary">listing erstellen</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel list-panel">
+        <div class="list-header">
+          <h2>listings</h2>
+          <div class="filters">
+            <label class="filter-label">
+              filter
+              <select id="status-filter">
+                <option value="all">alle</option>
+                <option value="aktiv">aktiv</option>
+                <option value="geflaggt">geflaggt</option>
+                <option value="entfernt">entfernt</option>
+              </select>
+            </label>
+            <span id="listing-count" class="count"></span>
+          </div>
+        </div>
+        <p class="mod-note">mod-aktionen immer sichtbar: flaggen · entfernen · wiederherstellen</p>
+        <div id="listings" class="listings" role="list"></div>
+        <p id="listings-empty" class="empty hidden">keine listings für diesen filter.</p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>elysium forum + marketplace · live shared state · free forever-tier</p>
+    <p class="footer-sub" id="footer-api">api wird geladen…</p>
+  </footer>
+
+  <div id="toast" class="toast hidden" role="status"></div>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
