@@ -2,61 +2,61 @@
 
 live multi-user **forum** + **marketplace** — german lowercase ui, dark cyberpunk theme.
 
-**not** localStorage-only. shared server-backed state for all visitors.
+**not** localStorage-only. shared server-backed state (cloudflare workers + kv) for all visitors.
 
 ## live urls
 
-> **live hosting note:** cloudflare quick tunnels returned HTTP 429 (rate limit). current public endpoint is **bore.pub** (http). ui+api are same-origin there. github pages is a code/mirror host — for shared writes open the bore url. for stable https: one free cloudflare account + `wrangler login` (workers free, no card).
-
-
 | what | url |
 |------|-----|
-| **live app (api + ui)** | **http://bore.pub:61039/** |
+| **live app (https ui + api)** | **https://elysium-forum.saber-suit.workers.dev** |
 | github pages mirror | https://digitaldesignerjazz.github.io/elysium-forum/ |
 | repo | https://github.com/digitaldesignerjazz/elysium-forum |
 
-pages mirror uses the same frontend and reads `config.js` for the live api base.
+> **keep-alive:** the workers deploy used a temporary cloudflare preview account (free). **claim it within ~60 minutes** so it stays forever on the free workers tier (no credit card):  
+> https://dash.cloudflare.com/claim-preview?claimToken=X4LzgJQUd1XqRZOfBxAm2m4cXYlveNwWWvPiauufBPk  
+> after claiming: run `wrangler login` once, then `npx wrangler deploy` (drop `--temporary`).
+
+pages mirror talks to the same https workers api (no mixed content / no bore).
+
+## diagnosis (why old urls failed)
+
+- **bore.pub:61039** — tunnel process died / unreachable from the public internet (connection failed).
+- **github pages** — static only; `config.js` pointed at dead **http://** bore → browsers block mixed content on https pages, and `/api` 404s on pages itself.
+- **cloudflared quick tunnels** — provisioning returned HTTP 429 (rate limit).
 
 ## features
 
 ### forum
 - thread list (title, nickname, time, reply count)
-- create thread
-- open thread + post replies
-- shared across all browsers
+- create thread / replies — shared across all browsers
 
 ### marketplace
-- shared listings: title, description, category, price, status (`aktiv` \| `geflaggt` \| `entfernt`)
-- create listing
-- mod actions always visible: **flaggen**, **entfernen**, **wiederherstellen**
-- seeds ~8 legal listings once if empty
+- shared listings + mod actions (flaggen / entfernen / wiederherstellen)
+- seeds legal demo listings if empty
 
 ### rules banner
 only legal goods — no drugs / weapons / stolen goods / csam.
 
-## architecture (free forever-tier)
+## architecture (free)
 
-1. **node/express api** on the agent box (`server/`) with json store
-2. **durable backup** via github contents api → `data/store.json` (authenticated `gh`)
-3. **public reachability** via **cloudflared quick tunnel** (free, no cf account)
-4. **github pages** hosts the static spa mirror
-
-> caveat: trycloudflare urls change when the tunnel restarts. `scripts/keepalive.sh` restarts the stack and updates `public/config.js`. for a stable hostname, deploy the included cloudflare worker (free workers tier — needs one free cf login, no card).
+1. **cloudflare worker** serves UI assets + `/api/*`
+2. **workers kv** holds shared `store` (multi-isolate / multi-user)
+3. **github pages** optional mirror (same frontend, `apiBase` → workers https)
 
 ## local
 
 ```bash
 npm install
 npm start
-# open http://127.0.0.1:8787
+# open http://127.0.0.1:8877  (avoid box port 8787 if occupied)
 ```
 
-## live start (box)
+## deploy / redeploy
 
 ```bash
-./scripts/start-live.sh
-# then optionally:
-./scripts/keepalive.sh
+./scripts/deploy-worker.sh
+# after claim + wrangler login:
+cd worker && npx wrangler deploy
 ```
 
 ## api
@@ -67,10 +67,6 @@ npm start
 - `POST /api/threads/:id/replies`
 - `GET|POST /api/listings`
 - `POST /api/listings/:id/flag|remove|restore`
-
-## upgrade path: cloudflare workers
-
-see `worker/` — hono-style worker + kv binding. deploy with `npx wrangler deploy` after `wrangler login` (free cf account, no credit card required for workers free tier).
 
 ## license
 

@@ -1,6 +1,6 @@
-/* auto-updated — live tunnel */
+/* auto-updated — github pages → workers api */
 window.ELYSIUM_CONFIG = {
-  apiBase: "http://bore.pub:61039",
-  updatedAt: "2026-09-26T13:01:24+02:00",
-  note: "primary live url is same-origin on bore; pages may hit mixed-content"
+  apiBase: "https://elysium-forum.saber-suit.workers.dev",
+  updatedAt: "2026-09-26T13:13:22+02:00",
+  note: "pages mirror; shared state on cloudflare workers+kv"
 };

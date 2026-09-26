@@ -4,9 +4,9 @@ compatibility_date = "2026-09-01"
 
 [[kv_namespaces]]
 binding = "STORE"
-id = "REPLACE_AFTER_wrangler_kv_namespace_create"
-preview_id = "REPLACE_PREVIEW"
+id = "c73cf89b451b4fc4b3b9b8a83593849d"
 
 [assets]
 directory = "../public"
 binding = "ASSETS"
+not_found_handling = "single-page-application"
