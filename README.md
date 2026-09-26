@@ -6,9 +6,12 @@ live multi-user **forum** + **marketplace** — german lowercase ui, dark cyberp
 
 ## live urls
 
+> **live hosting note:** cloudflare quick tunnels returned HTTP 429 (rate limit). current public endpoint is **bore.pub** (http). ui+api are same-origin there. github pages is a code/mirror host — for shared writes open the bore url. for stable https: one free cloudflare account + `wrangler login` (workers free, no card).
+
+
 | what | url |
 |------|-----|
-| live app (api + ui via tunnel) | see `public/config.js` → `apiBase` (trycloudflare) |
+| **live app (api + ui)** | **http://bore.pub:61039/** |
 | github pages mirror | https://digitaldesignerjazz.github.io/elysium-forum/ |
 | repo | https://github.com/digitaldesignerjazz/elysium-forum |
 

@@ -3,6 +3,20 @@
   const API = (cfg.apiBase || "").replace(/\/$/, "");
 
   const nickKey = "elysium_nickname";
+  function showLiveGate(liveUrl) {
+    if (document.getElementById("live-gate")) return;
+    const gate = document.createElement("div");
+    gate.id = "live-gate";
+    gate.style.cssText = "position:fixed;inset:0;z-index:100;background:rgba(7,11,18,.92);display:flex;align-items:center;justify-content:center;padding:1.5rem;";
+    gate.innerHTML = `<div style="max-width:420px;background:#0d1420;border:1px solid #2a4066;border-radius:12px;padding:1.5rem;text-align:center">
+      <div style="color:#00e5c0;font-size:1.5rem;margin-bottom:.5rem">◈</div>
+      <h2 style="margin:0 0 .5rem;text-transform:lowercase;color:#c8d6e8">live forum öffnen</h2>
+      <p style="color:#7a8fa8;font-size:.9rem;margin:0 0 1rem">github pages ist https — die free live-api läuft aktuell über http (bore). für shared multi-user bitte die live-url öffnen (ui + api same-origin).</p>
+      <a href="${liveUrl}" style="display:inline-block;padding:.65rem 1.1rem;border-radius:8px;background:rgba(0,229,192,.2);border:1px solid rgba(0,229,192,.45);color:#00e5c0;text-decoration:none;text-transform:lowercase;font-weight:600">→ ${liveUrl}</a>
+    </div>`;
+    document.body.appendChild(gate);
+  }
+
 
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
@@ -304,11 +318,18 @@
   rememberNick($("#reply-form"));
 
   (async () => {
-    // If config points elsewhere but we're on the tunnel, prefer same-origin when health works locally
-    const ok = await checkHealth();
-    if (!ok && cfg.apiBase) {
-      // already failed against configured base
+    const onPages = /github\.io$/i.test(location.hostname);
+    const live = (cfg.apiBase || "").replace(/\/$/, "");
+    // Mixed content: https pages cannot call http api
+    if (onPages && live.startsWith("http://")) {
+      showLiveGate(live + "/");
+      $("#api-status").textContent = "live → bore";
+      $("#api-status").className = "status-pill pending";
+      $("#footer-api").textContent = "öffne die live-url für multi-user: " + live;
+      return;
     }
-    await loadThreads();
+    const ok = await checkHealth();
+    if (ok) await loadThreads();
+    else if (live) showLiveGate(live + "/");
   })();
 })();
