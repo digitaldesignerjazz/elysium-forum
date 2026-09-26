@@ -4,13 +4,13 @@
       "id": "BQeecv2rQ7",
       "nickname": "tester",
       "title": "live smoke test",
-      "body": "server-backed thread \u2014 sichtbar f\u00fcr alle.",
+      "body": "server-backed thread — sichtbar für alle.",
       "createdAt": "2026-09-26T11:01:25.798Z",
       "replies": [
         {
           "id": "KQhprVzlfl",
           "nickname": "lyra",
-          "body": "reply vom live-api \u2014 multi-user best\u00e4tigt.",
+          "body": "reply vom live-api — multi-user bestätigt.",
           "createdAt": "2026-09-26T11:01:56.613Z"
         }
       ]
@@ -19,13 +19,13 @@
       "id": "thread-welcome",
       "title": "willkommen im elysium forum",
       "nickname": "nexus",
-      "body": "dies ist das live multi-user forum. threads und replies sind server-backed und f\u00fcr alle besucher sichtbar. bitte bleib freundlich und legal.",
+      "body": "dies ist das live multi-user forum. threads und replies sind server-backed und für alle besucher sichtbar. bitte bleib freundlich und legal.",
       "createdAt": "2026-09-20T12:00:00.000Z",
       "replies": [
         {
           "id": "reply-welcome-1",
           "nickname": "lyra",
-          "body": "sch\u00f6n hier zu sein \u2014 marketplace-tab f\u00fcr legale listings, forum f\u00fcr diskussion.",
+          "body": "schön hier zu sein — marketplace-tab für legale listings, forum für diskussion.",
           "createdAt": "2026-09-20T12:15:00.000Z"
         }
       ]
@@ -43,10 +43,10 @@
     },
     {
       "id": "seed-8",
-      "title": "icon pack \u00b7 120 line icons",
+      "title": "icon pack · 120 line icons",
       "description": "monochrome line icons (24px), svg + png. inkl. figma library.",
       "category": "design",
-      "price": "15 \u20ac",
+      "price": "15 €",
       "status": "aktiv",
       "createdAt": "2026-09-08T13:10:00.000Z"
     },
@@ -55,7 +55,7 @@
       "title": "markdown notes sync tool",
       "description": "desktop-app (win/mac/linux) zum syncen von markdown-ordnern via eigene api.",
       "category": "software",
-      "price": "9 \u20ac one-time",
+      "price": "9 € one-time",
       "status": "aktiv",
       "createdAt": "2026-09-07T08:20:00.000Z"
     },
@@ -64,34 +64,34 @@
       "title": "elysium enamel pin set",
       "description": "3er set hard-enamel pins (netz, node, signal). nickelfrei, inkl. backing cards.",
       "category": "merch",
-      "price": "18 \u20ac",
+      "price": "18 €",
       "status": "aktiv",
       "createdAt": "2026-09-06T12:00:00.000Z"
     },
     {
       "id": "seed-5",
       "title": "cyberpunk worldbuilding workbook",
-      "description": "pdf-workbook mit prompts f\u00fcr settings, fraktionen und street-level stories.",
+      "description": "pdf-workbook mit prompts für settings, fraktionen und street-level stories.",
       "category": "buch",
-      "price": "12 \u20ac",
+      "price": "12 €",
       "status": "aktiv",
       "createdAt": "2026-09-05T16:45:00.000Z"
     },
     {
       "id": "seed-4",
       "title": "logo & brand sprint (remote)",
-      "description": "2-t\u00e4giger remote design-sprint: moodboard, 3 richtungen, finale dateien (svg/png).",
+      "description": "2-tägiger remote design-sprint: moodboard, 3 richtungen, finale dateien (svg/png).",
       "category": "dienstleistung",
-      "price": "ab 350 \u20ac",
+      "price": "ab 350 €",
       "status": "aktiv",
       "createdAt": "2026-09-04T14:00:00.000Z"
     },
     {
       "id": "seed-3",
       "title": "mechanical keyboard switches (unused)",
-      "description": "packung 70\u00d7 gateron yellow pro (linear), unbenutzt, originalverpackt.",
+      "description": "packung 70× gateron yellow pro (linear), unbenutzt, originalverpackt.",
       "category": "hardware",
-      "price": "35 \u20ac",
+      "price": "35 €",
       "status": "aktiv",
       "createdAt": "2026-09-03T09:15:00.000Z"
     },
@@ -107,9 +107,9 @@
     {
       "id": "seed-1",
       "title": "neon terminal ui kit",
-      "description": "figma + svg komponenten f\u00fcr dunkle dashboards. inkl. buttons, cards, charts.",
+      "description": "figma + svg komponenten für dunkle dashboards. inkl. buttons, cards, charts.",
       "category": "design",
-      "price": "29 \u20ac",
+      "price": "29 €",
       "status": "aktiv",
       "createdAt": "2026-09-01T10:00:00.000Z"
     }
